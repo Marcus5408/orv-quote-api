@@ -1,7 +1,7 @@
 runtime: python311 # or another supported version
 
 instance_class: F1
-entrypoint: gunicorn -b :$PORT 5050
+entrypoint: gunicorn -b :$PORT myapp.wsgi:app
 
 env_variables:
   BUCKET_NAME: "example-gcs-bucket"

@@ -1,0 +1,30 @@
+runtime: python311 # or another supported version
+
+instance_class: F1
+entrypoint: gunicorn -b :$PORT main:app
+
+env_variables:
+  BUCKET_NAME: "example-gcs-bucket"
+  QUOTES_FILE: "orv_quotes.json"
+
+handlers:
+- url: /quote
+  script: auto
+  secure: always
+  redirect_http_response_code: 301
+  
+- url: /shortquote
+  script: auto
+  secure: always
+  redirect_http_response_code: 301
+
+- url: /longquote
+  script: auto
+  secure: always
+  redirect_http_response_code: 301
+
+
+- url: /.*
+  secure: always
+  redirect_http_response_code: 301
+  script: auto

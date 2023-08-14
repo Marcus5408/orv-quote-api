@@ -15,18 +15,18 @@ class Quote(Resource):
     def get(self):
         return random.choice(self.quotes), 200
     
-    def post(self, quote:str, author:str):
-        parser = reqparse.RequestParser()
-        parser.add_argument("quote")
-        parser.add_argument("author")
-        params = parser.parse_args()
-
-        quote = {
-            "quote": params["quote"],
-            "author": params["author"]
-        }
-        self.quotes.append(quote)
-        return quote, 201
+    # post method temporarily disabled cause I have no way of testing it right now
+    # def post(self, quote:str, author:str):
+    #     parser = reqparse.RequestParser()
+    #     parser.add_argument("quote")
+    #     parser.add_argument("author")
+    #     params = parser.parse_args()
+    #     quote = {
+    #         "quote": params["quote"],
+    #         "author": params["author"]
+    #     }
+    #     self.quotes.append(quote)
+    #     return quote, 201
 
 class short_quote(Quote):
     def __init__(self) -> None:

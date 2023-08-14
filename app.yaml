@@ -1,7 +1,7 @@
 runtime: python311 # or another supported version
 
 instance_class: F1
-entrypoint: gunicorn -b :$PORT main:app
+entrypoint: gunicorn -b :$PORT 5050
 
 env_variables:
   BUCKET_NAME: "example-gcs-bucket"
@@ -12,7 +12,7 @@ handlers:
   script: auto
   secure: always
   redirect_http_response_code: 301
-  
+
 - url: /shortquote
   script: auto
   secure: always

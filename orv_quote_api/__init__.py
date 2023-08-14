@@ -40,9 +40,6 @@ class any_quote(Quote):
     def __init__(self) -> None:
         super().__init__(random.choice(["orv_quote_api\short_quotes.json", "orv_quote_api\long_quotes.json"]))
 
-if __name__ == '__main__':
-    app.run(debug=True)
-
 # class for the base url of the api.
 class home(Resource):
     def get(self):

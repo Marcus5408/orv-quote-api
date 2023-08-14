@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "orv-quote-api"
+version = "0.1.0"
+description = ""
+authors = ["Marcus Jones <46655509+Marcus5408@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{include = "orv_quote_api"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+flask = "^2.3.2"
+flask-restful = "^0.3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

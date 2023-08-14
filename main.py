@@ -29,20 +29,20 @@ class Quote(Resource):
     #     return quote, 201
 
 @app.route("/shortquote", methods=["GET"])
-def short_quote():
-    with open("orv_quote_api\short_quotes.json", "r", encoding="utf-8") as f:
+def short_quote() -> str:
+    with open("quotes\short_quotes.json", "r", encoding="utf-8") as f:
         quotes = json.load(f)
     return random.choice(quotes), 200
 
 @app.route("/longquote", methods=["GET"])
-def long_quote():
-    with open("orv_quote_api\long_quotes.json", "r", encoding="utf-8") as f:
+def long_quote() -> str:
+    with open("quotes\long_quotes.json", "r", encoding="utf-8") as f:
         quotes = json.load(f)
     return random.choice(quotes), 200
 
 @app.route("/quote", methods=["GET"])
-def any_quote():
-    quote_file = random.choice(["orv_quote_api\short_quotes.json", "orv_quote_api\long_quotes.json"])
+def any_quote() -> str:
+    quote_file = random.choice(["quotes\short_quotes.json", "quotes\long_quotes.json"])
     with open(quote_file, "r", encoding="utf-8") as f:
         quotes = json.load(f)
     return random.choice(quotes), 200

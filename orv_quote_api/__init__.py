@@ -28,27 +28,29 @@ class Quote(Resource):
     #     self.quotes.append(quote)
     #     return quote, 201
 
-class short_quote(Quote):
-    def __init__(self) -> None:
-        super().__init__("orv_quote_api\short_quotes.json")
+@app.route("/shortquote", methods=["GET"])
+def short_quote():
+    with open("orv_quote_api\short_quotes.json", "r", encoding="utf-8") as f:
+        quotes = json.load(f)
+    return random.choice(quotes), 200
 
-class long_quote(Quote):
-    def __init__(self) -> None:
-        super().__init__("orv_quote_api\long_quotes.json")
+@app.route("/longquote", methods=["GET"])
+def long_quote():
+    with open("orv_quote_api\long_quotes.json", "r", encoding="utf-8") as f:
+        quotes = json.load(f)
+    return random.choice(quotes), 200
 
-class any_quote(Quote):
-    def __init__(self) -> None:
-        super().__init__(random.choice(["orv_quote_api\short_quotes.json", "orv_quote_api\long_quotes.json"]))
+@app.route("/quote", methods=["GET"])
+def any_quote():
+    quote_file = random.choice(["orv_quote_api\short_quotes.json", "orv_quote_api\long_quotes.json"])
+    with open(quote_file, "r", encoding="utf-8") as f:
+        quotes = json.load(f)
+    return random.choice(quotes), 200
 
 # class for the base url of the api.
-class home(Resource):
-    def get(self):
-        return "This API provides a single quote from ORV.", 200
-
-api.add_resource(home, "/")
-api.add_resource(any_quote, "/quote", "/quote/")
-api.add_resource(short_quote, "/shortquote", "/shortquote/")
-api.add_resource(long_quote, "/longquote", "/longquote/")
+@app.route("/", methods=["GET"])
+def index():
+    return "This API provides a single quote from ORV.", 200
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -2,6 +2,7 @@ from flask import Flask
 from flask_restful import Api, Resource, reqparse
 import random
 import json
+import requests
 
 app = Flask(__name__)
 api = Api(app)
@@ -28,24 +29,27 @@ class Quote(Resource):
     #     self.quotes.append(quote)
     #     return quote, 201
 
+long_quotes = requests.get("https://raw.githubusercontent.com/Marcus5408/orv-quote-api/main/quotes/long_quotes.json").json()
+short_quotes = requests.get("https://raw.githubusercontent.com/Marcus5408/orv-quote-api/main/quotes/short_quotes.json").json()
+
 @app.route("/shortquote", methods=["GET"])
 def short_quote() -> str:
-    with open("quotes\short_quotes.json", "r", encoding="utf-8") as f:
-        quotes = json.load(f)
-    return random.choice(quotes), 200
+    # with open(short_quotes, "r", encoding="utf-8") as f:
+    #     quotes = json.load(f)
+    return random.choice(short_quotes), 200
 
 @app.route("/longquote", methods=["GET"])
 def long_quote() -> str:
-    with open("quotes\long_quotes.json", "r", encoding="utf-8") as f:
-        quotes = json.load(f)
-    return random.choice(quotes), 200
+    # with open(long_quotes, "r", encoding="utf-8") as f:
+    #     quotes = json.load(f)
+    return random.choice(long_quotes), 200
 
 @app.route("/quote", methods=["GET"])
 def any_quote() -> str:
-    quote_file = random.choice(["quotes\short_quotes.json", "quotes\long_quotes.json"])
-    with open(quote_file, "r", encoding="utf-8") as f:
-        quotes = json.load(f)
-    return random.choice(quotes), 200
+    quote_file = random.choice([short_quotes, long_quotes])
+    # with open(quote_file, "r", encoding="utf-8") as f:
+    #     quotes = json.load(f)
+    return random.choice(quote_file), 200
 
 # class for the base url of the api.
 @app.route("/", methods=["GET"])

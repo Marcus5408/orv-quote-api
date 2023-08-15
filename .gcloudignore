@@ -12,6 +12,7 @@
 # below:
 .git
 .gitignore
+.github
 
 # Quote files (will be pulled from GitHub)
 quotes/

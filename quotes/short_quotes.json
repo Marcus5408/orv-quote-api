@@ -1,41 +1,71 @@
 [{
     "quote": "Tell me, you fool. If I continue to regress, will I ever get to meet you again?",
-    "author": "Yoo Joonghyuk"
+    "author": "Yoo Joonghyuk",
+    "chapter": 525,
+    "episode": "E1",
+    "episode_name": "The World of Zero, IX"
 },
 {
     "quote": "I wish to see the novel's epilogue.",
-    "author": "Kim Dokja"
+    "author": "Kim Dokja",
+    "chapter": 278,
+    "episode": "52",
+    "episode_name": "■■, III"
 },
 {
     "quote": "Get lost, Kim Dokja.",
-    "author": "Yoo Joonghyuk"
+    "author": "Yoo Joonghyuk",
+    "chapter": 256,
+    "episode": "48",
+    "episode_name": "Entrance as a Character, II"
 },
 {
     "quote": "Yoo Joonghyuk looked at me like I was mentally ill. \"Kim Dokja! Don't say anything else!\" Of course, I kept talking.",
-    "author": "Kim Dokja"
+    "author": "Kim Dokja",
+    "chapter": 234,
+    "episode": "44",
+    "episode_name": "Swindler, II"
 },
 {
-    "quote": "A regressor actually doesn't regress. What actually regresses isn't him, but everything else excluding him.",
-    "author": "Unknown"
+    "quote": "⸢A regressor actually doesn't regress. What actually regresses isn't him, but everything else excluding him.⸥",
+    "author": "Unknown",
+    "chapter": 476,
+    "episode": "90",
+    "episode_name": "One Person, V"
 },
 {
     "quote": "To think, I was learning how to make dumplings from a dumpling while walking on the Dumpling Road.",
-    "author": "Kim Dokja"
+    "author": "Kim Dokja",
+    "chapter": 428,
+    "episode": "81",
+    "episode_name": "A Dumpling's Reminiscence, I"
 },
 {
     "quote": "That man is the world I wish to save.",
-    "author": "Jung Heewon"
+    "author": "Jung Heewon",
+    "chapter": 409,
+    "episode": "78",
+    "episode_name": "Twist/轉, I"
 },
 {
-    "quote": "Joonghyuk, we can save the world. Don't you know?",
-    "author": "Kim Dokja"
+    "quote": "「Joonghyuk-ah, we can save the world. You know that, right?」",
+    "author": "Kim Dokja",
+    "chapter": 285,
+    "episode": "54",
+    "episode_name": "Demon King Slayer, I"
 },
 {
     "quote": "[You're our son. That is all that matters.]",
-    "author": "Persephone"
+    "author": "Persephone",
+    "chapter": 389,
+    "episode": "74",
+    "episode_name": "Great War of Saints and Demons, IV"
 },
 {
     "quote": "【Why, why is it not me, but you??】",
-    "author": "Secretive Plotter"
+    "author": "Secretive Plotter",
+    "chapter": 471,
+    "episode": "89",
+    "episode_name": "Great Apocalypse, V"
 }
 ]

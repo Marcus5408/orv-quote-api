@@ -13,6 +13,9 @@
 .git
 .gitignore
 
+# Quote files (will be pulled from GitHub)
+quotes/
+
 # Python pycache:
 __pycache__/
 # Ignored by the build system

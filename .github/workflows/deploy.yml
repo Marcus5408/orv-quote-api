@@ -1,4 +1,6 @@
-name: Deploy to Google App Engine
+name: 'Deploy to Google App Engine'
+
+concurrency: production
 
 on:
   release:
@@ -8,6 +10,7 @@ on:
 jobs:
   Deploy:
     runs-on: ubuntu-latest
+    environment: production
     
     # Add "id-token" with the intended permissions.
     permissions:
@@ -59,6 +62,7 @@ jobs:
   # It tests the endpoints of the deployed app.
   Test-Deployment:
     runs-on: ubuntu-latest
+    environment: production
     needs: Deploy
     steps:
       - name: 'Test `/` endpoint'

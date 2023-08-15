@@ -1,11 +1,11 @@
-from flask import Flask
-from flask_restful import Api, Resource, reqparse
+from flask import Flask, send_from_directory
+from flask_restful import Api
 import random
-import json
 import requests
+import os
 
 app = Flask(__name__)
-api = Api(app)
+# api = Api(app)
 
 long_quotes = requests.get("https://raw.githubusercontent.com/Marcus5408/orv-quote-api/main/quotes/long_quotes.json").json()
 short_quotes = requests.get("https://raw.githubusercontent.com/Marcus5408/orv-quote-api/main/quotes/short_quotes.json").json()
@@ -25,7 +25,12 @@ def any_quote() -> str:
 
 @app.route("/", methods=["GET"])
 def index():
-    return "This API provides a random quote from ORV.", 200
+    return "<html><h1>ORV Quote API</h1><p>This API provides a random quote from ORV.</p></html>", 200
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'assets'),
+        'favicon.ico',mimetype='image/vnd.microsoft.icon')
 
 if __name__ == '__main__':
     app.run(debug=False)

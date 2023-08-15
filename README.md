@@ -31,3 +31,18 @@ $ python example.py
 ```
 
 ## Contributing
+
+### Quotes
+
+To add new quotes to the API, either:
+
+1. Create a GitHub issue under the `quote request` label with the quote and the person saying it/ main person in the scene.
+2. Make a pull request with your quote added to the correct quotes file. They can be found in the `quotes` folder.
+3. Contact me through some other means.
+   - GitHub: [`@Marcus5408`](https://github.com/Marcus5408)
+   - Discord: [`@carmiscious`](https://discord.com/users/378650582639968276)
+   - Reddit: [`u/RedditMarcus_`](https://reddit.com/user/RedditMarcus_)
+  
+### Code
+
+To add new code, make a pull request with your changes.

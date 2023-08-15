@@ -1,0 +1,55 @@
+name: Deploy to Google App Engine
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    # Add "id-token" with the intended permissions.
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+
+    steps:
+    # actions/checkout MUST come before auth
+    - uses: 'actions/checkout@v3'
+
+    - id: 'auth'
+      name: 'Authenticate to Google Cloud'
+      uses: 'google-github-actions/auth@v1'
+      with:
+        workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+        service_account: ${{ secrets.GCP_SA }}
+
+    - name: Set up gcloud Cloud SDK environment
+      # You may pin to the exact commit or the version.
+      # uses: google-github-actions/setup-gcloud@e30db14379863a8c79331b04a9969f4c1e225e0b
+      uses: google-github-actions/setup-gcloud@v1.1.1
+      with:
+        # Skip installation of the gcloud SDK and use the system-supplied version instead. The "version" input will be ignored.
+        skip_install: false # optional
+        # Version or version constraint of the gcloud SDK to install. If unspecified, it will accept any installed version of the gcloud SDK. If set to "latest", it will download the latest available SDK. If set to a version constraint, it will download the latest available version that matches the constraint. Examples: "290.0.1" or ">= 197.0.1".
+        version: latest # optional, default is latest
+        # ID of the Google Cloud project. If provided, this will configure gcloud to use this project ID by default for commands. Individual commands can still override the project using the --project flag which takes precedence.
+        project_id: orv-quote-api # optional
+        # List of Cloud SDK components to install
+        install_components: app-engine-python # optional
+    
+    - name: 'Set up Cloud SDK'
+      uses: 'google-github-actions/setup-gcloud@v1'
+
+    - name: 'Use gcloud CLI'
+      run: 'gcloud info'
+
+    - name: Configure gcloud CLI
+      run: |
+        gcloud config set project orv-quote-api
+        gcloud config set app/promote_by_default false
+
+    - name: Deploy to App Engine
+      run: |
+        gcloud app deploy app.yaml --quiet

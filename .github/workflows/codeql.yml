@@ -17,11 +17,13 @@ on:
       - main
     paths-ignore:
       - '.github/**'  # Exclude changes to the .github directory
+      - 'quotes/**'
   pull_request:
     branches:
       - main
-    paths-ignore:
+    paths-ignore: 
       - '.github/**'  # Exclude changes to the .github directory
+      - 'quotes/**'
   schedule:
     - cron: '35 15 * * 1'
 

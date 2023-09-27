@@ -1,6 +1,7 @@
 # Omniscient Reader's Viewpoint Quotes API
 
 [![Google App Engine Deployment](https://github.com/Marcus5408/orv-quote-api/actions/workflows/deploy.yml/badge.svg)](https://github.com/Marcus5408/orv-quote-api/actions/workflows/deploy.yml)
+[![CodeQL Scan](https://github.com/Marcus5408/orv-quote-api/actions/workflows/codeql.yml/badge.svg)](https://github.com/Marcus5408/orv-quote-api/actions/workflows/codeql.yml)
 
 This is a simple API that returns a random quote from the book Omniscient Reader's Viewpoint.
 

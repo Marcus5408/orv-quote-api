@@ -15,7 +15,7 @@
 .github
 
 # Quote files (will be pulled from GitHub)
-quotes/
+# quotes/
 
 # Python pycache:
 __pycache__/
@@ -23,3 +23,6 @@ __pycache__/
 /setup.cfg
 # VSCode settings
 .vscode/
+
+# quote submission script
+submit_quote.py

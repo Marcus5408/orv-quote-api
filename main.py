@@ -1,14 +1,18 @@
 from flask import Flask, send_from_directory
 from flask_restful import Api
 import random
-import requests
+# import requests
 import os
+import json
 
 app = Flask(__name__)
 # api = Api(app)
 
-long_quotes = requests.get("https://raw.githubusercontent.com/Marcus5408/orv-quote-api/main/quotes/long_quotes.json").json()
-short_quotes = requests.get("https://raw.githubusercontent.com/Marcus5408/orv-quote-api/main/quotes/short_quotes.json").json()
+with open('quotes/long_quotes.json', 'r', encoding='utf-8') as f:
+    long_quotes = json.load(f)
+
+with open('quotes/short_quotes.json', 'r', encoding='utf-8') as f:
+    short_quotes = json.load(f)
 
 @app.route("/shortquote", methods=["GET"])
 def short_quote() -> str:

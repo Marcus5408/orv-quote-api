@@ -1,12 +1,9 @@
 from flask import Flask, send_from_directory
-from flask_restful import Api
 import random
-# import requests
 import os
 import json
 
 app = Flask(__name__)
-# api = Api(app)
 
 with open('quotes/long_quotes.json', 'r', encoding='utf-8') as f:
     long_quotes = json.load(f)

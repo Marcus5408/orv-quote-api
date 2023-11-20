@@ -65,18 +65,26 @@ jobs:
     environment: production
     needs: Deploy
     steps:
+      - name: 'Install jq dependency'
+        run: |
+          sudo apt-get install jq
+
       - name: 'Test `/` endpoint'
         run: |
-          curl https://orv-quote-api.uk.r.appspot.com/
+          response=$(curl -s https://orv-quote-api.uk.r.appspot.com/)
+          echo $response | jq -e '.quote and .author and .chapter and .episode and .episode_name' > /dev/null
           
       - name: 'Test `/quote` endpoint'
         run: |
-          curl https://orv-quote-api.uk.r.appspot.com/quote
-      
+          response=$(curl -s https://orv-quote-api.uk.r.appspot.com/quote)
+          echo $response | jq -e '.quote and .author and .chapter and .episode and .episode_name' > /dev/null
+          
       - name: 'Test `/shortquote` endpoint'
         run: |
-          curl https://orv-quote-api.uk.r.appspot.com/shortquote
+          response=$(curl -s https://orv-quote-api.uk.r.appspot.com/shortquote)
+          echo $response | jq -e '.quote and .author and .chapter and .episode and .episode_name' > /dev/null
 
       - name: 'Test `/longquote` endpoint'
         run: |
-          curl https://orv-quote-api.uk.r.appspot.com/longquote
+          response=$(curl -s https://orv-quote-api.uk.r.appspot.com/longquote)
+          echo $response | jq -e '.quote and .author and .chapter and .episode and .episode_name' > /dev/null

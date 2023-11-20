@@ -1,3 +1,4 @@
+from typing import Tuple, Any
 from flask import Flask, send_from_directory
 import random
 import os
@@ -11,27 +12,33 @@ with open('quotes/long_quotes.json', 'r', encoding='utf-8') as f:
 with open('quotes/short_quotes.json', 'r', encoding='utf-8') as f:
     short_quotes = json.load(f)
 
+
 @app.route("/shortquote", methods=["GET"])
-def short_quote() -> str:
+def short_quote() -> tuple[Any, int]:
     return random.choice(short_quotes), 200
 
+
 @app.route("/longquote", methods=["GET"])
-def long_quote() -> str:
+def long_quote() -> tuple[Any, int]:
     return random.choice(long_quotes), 200
 
+
 @app.route("/quote", methods=["GET"])
-def any_quote() -> str:
+def any_quote() -> tuple[Any, int]:
     quote_file = random.choice([short_quotes, long_quotes])
     return random.choice(quote_file), 200
+
 
 @app.route("/", methods=["GET"])
 def index():
     return "<html><h1>ORV Quote API</h1><p>This API provides a random quote from ORV.</p></html>", 200
 
+
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'assets'),
-        'favicon.ico',mimetype='image/vnd.microsoft.icon')
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
+
 
 if __name__ == '__main__':
     app.run(debug=False)

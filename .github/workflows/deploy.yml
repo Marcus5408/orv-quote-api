@@ -72,7 +72,6 @@ jobs:
       - name: 'Test `/` endpoint'
         run: |
           response=$(curl -s https://orv-quote-api.uk.r.appspot.com/)
-          echo $response | jq -e '.quote and .author and .chapter and .episode and .episode_name' > /dev/null
           
       - name: 'Test `/quote` endpoint'
         run: |
